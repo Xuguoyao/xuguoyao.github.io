@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Xuguoyao</title>
+    <link>https://xuguoyao.github.io/</link>
+    <description>Recent content on Xuguoyao</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 09 Jun 2022 15:29:43 +0800</lastBuildDate><atom:link href="https://xuguoyao.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>我的第一篇博客</title>
+      <link>https://xuguoyao.github.io/posts/my-first-post/</link>
+      <pubDate>Thu, 09 Jun 2022 15:29:43 +0800</pubDate>
+      
+      <guid>https://xuguoyao.github.io/posts/my-first-post/</guid>
+      <description>你好呀！</description>
+    </item>
+    
+  </channel>
+</rss>
