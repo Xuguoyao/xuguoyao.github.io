@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>swaggo - 标签 - </title>
+        <link>https://xuguoyao.github.io/tags/swaggo/</link>
+        <description>swaggo - 标签 - </description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 28 Aug 2021 17:31:00 &#43;0800</lastBuildDate><atom:link href="https://xuguoyao.github.io/tags/swaggo/" rel="self" type="application/rss+xml" /><item>
+    <title>使用swaggo时要注意的一点</title>
+    <link>https://xuguoyao.github.io/posts/swaggo/</link>
+    <pubDate>Sat, 28 Aug 2021 17:31:00 &#43;0800</pubDate>
+    <author>xgy</author>
+    <guid>https://xuguoyao.github.io/posts/swaggo/</guid>
+    <description><![CDATA[安装swag cli 及下载相关包 要使用swaggo,首先需要安装swag cli。 $ go get -u github.com/swaggo/swag/cmd/swag 然后我们还需要两个包。 gin-swagger 中间件 $ go get github.com/swaggo/gin-swagger swagger 内置文件 $ go get github.com/swaggo/gin-swagger/swaggerFiles]]></description>
+</item>
+</channel>
+</rss>

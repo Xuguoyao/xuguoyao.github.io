@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>linux - 分类 - </title>
+        <link>https://xuguoyao.github.io/categories/linux/</link>
+        <description>linux - 分类 - </description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 29 Jul 2017 09:32:00 &#43;0800</lastBuildDate><atom:link href="https://xuguoyao.github.io/categories/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>Linux下去掉^M的方法</title>
+    <link>https://xuguoyao.github.io/posts/linux-del-m/</link>
+    <pubDate>Sat, 29 Jul 2017 09:32:00 &#43;0800</pubDate>
+    <author>xgy</author>
+    <guid>https://xuguoyao.github.io/posts/linux-del-m/</guid>
+    <description><![CDATA[在服务器上用 vi -b 查看脚本的时候，发现里面每一行结尾都有 ^M 这个东西。 解决办法是： 1.先 vi -b 打要修改的脚本； 2.按一下 Esc ，然后输入 :%s/.$//g ，然后回车；]]></description>
+</item>
+</channel>
+</rss>

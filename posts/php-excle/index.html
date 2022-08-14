@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>PHPExcle导excle表到数据库 - </title><meta name="Description" content="This is my cool site"><meta property="og:title" content="PHPExcle导excle表到数据库" />
+<meta property="og:description" content="通过PHPExcle把excle表导入数据库，变成数据表；也就是一个excle表对应就是一个数据表： Excle表里的格式为： . A B C 1 对应数" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xuguoyao.github.io/posts/php-excle/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2018-01-06T23:36:00+08:00" />
+<meta property="article:modified_time" content="2018-01-06T23:36:00+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="PHPExcle导excle表到数据库"/>
+<meta name="twitter:description" content="通过PHPExcle把excle表导入数据库，变成数据表；也就是一个excle表对应就是一个数据表： Excle表里的格式为： . A B C 1 对应数"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xuguoyao.github.io/posts/php-excle/" /><link rel="prev" href="https://xuguoyao.github.io/posts/multidimensional-array-sorting/" /><link rel="next" href="https://xuguoyao.github.io/posts/swaggo/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "PHPExcle导excle表到数据库",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/xuguoyao.github.io\/posts\/php-excle\/"
+        },"genre": "posts","keywords": "php","wordcount":  1121 ,
+        "url": "https:\/\/xuguoyao.github.io\/posts\/php-excle\/","datePublished": "2018-01-06T23:36:00+08:00","dateModified": "2018-01-06T23:36:00+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "xgy"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title=""><span class="header-title-pre"><img src='/images/mona-loading-default.gif' width=30></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title=""><span class="header-title-pre"><img src='/images/mona-loading-default.gif' width=30></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">PHPExcle导excle表到数据库</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>xgy</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/php/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>php</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2018-01-06">2018-01-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1121 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+            </div><div class="content" id="content"><p>通过PHPExcle把excle表导入数据库，变成数据表；也就是一个excle表对应就是一个数据表：</p>
+<p>Excle表里的格式为：</p>
+<table>
+<thead>
+<tr>
+<th>.</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>对应数据库的字段</td>
+<td>对应数据库的字段</td>
+<td>对应数据库的字段</td>
+</tr>
+<tr>
+<td>2</td>
+<td>字段的注释</td>
+<td>字段的注释</td>
+<td>字段的注释</td>
+</tr>
+<tr>
+<td>3</td>
+<td>值</td>
+<td>值</td>
+<td>值</td>
+</tr>
+</tbody>
+</table>
+<p>代码：</p>
+<pre tabindex="0"><code>&lt;?php
+
+    header(&#34;Content-Type:text/html;charset=utf-8&#34;);
+    error_reporting(0); 
+    define(&#39;FY_MTIME&#39;,microtime(TRUE));
+
+    require_once &#39;inc/config.php&#39;; 
+
+
+    $d = dir(&#39;xls/&#39;);
+    while (($file = $d-&gt;read()) !== false){
+        if(substr(strrchr($file, &#39;.&#39;), 1) == &#39;xls&#39;){
+
+            $arr[] = $file; 
+        }
+    }
+    //我是把所有xls文件列出列表，勾选提交到这边$_POST
+    foreach($_POST as $k =&gt; $item){
+        foreach($item as $v){
+            getExeclData(&#39;xls/&#39;.$arr[$v]);
+        }
+    }
+
+
+     /** 
+     * 获取Execl表格数据 
+     */  
+     function getExeclData($file)  
+        { 
+        //首先导入PhPExcel  
+        require_once &#39;PHPExcel/PHPExcel.php&#39;; 
+        $filePath = $file;  
+        if ($filePath == null || $filePath == &#39;&#39;) {  
+            return;  
+        }  
+
+        $PHPReader = new PHPExcel_Reader_Excel5();  
+        if (!$PHPReader-&gt;canRead($filePath)) {  
+            echo &#39;no Excel&#39;;  
+            return;  
+        }  
+
+
+
+
+
+        //建立excel对象，此时你即可以通过excel对象读取文件，也可以通过它写入文件  
+        $PHPExcel = $PHPReader-&gt;load($filePath);  
+
+
+        /**读取excel文件中的第一个工作表*/  
+        $currentSheet = $PHPExcel-&gt;getSheet(0);  
+
+        /**取得最大的列号*/  
+        $allColumn = $currentSheet-&gt;getHighestColumn();  
+        /**取得一共有多少行*/  
+        $allRow = $currentSheet-&gt;getHighestRow();  
+
+
+        //下面改成&#39;!=&#39;,所以把$allColumn+1,&#39;&lt;=&#39;就有问题
+        $allColumn++;
+
+        //获取excle表中第一行的字段名
+        $hdata = array();  
+        $null = array();  
+        for($colIndex=&#39;A&#39;; $colIndex != $allColumn; $colIndex++){ 
+            $haddr = $colIndex . 1;  //编号A1、B1
+            $hcell = $currentSheet-&gt;getCell($haddr)-&gt;getValue(); //编号对应的值
+
+            if(!empty($hcell)){    
+
+                array_push($hdata, $hcell); 
+
+            }else{
+
+                array_push($null[$colIndex], $hcell);
+
+            }
+        } 
+
+
+        //把excel的空字段组成数组
+        $key = array_keys($null);
+
+        //获取xls文件名，与数据表同名
+        $filePath = substr($filePath,strpos($filePath,&#39;/&#39;)+1);
+        $sheetName = explode(&#39;.&#39;,$filePath);
+        $sheetName = $sheetName[0];
+
+
+        //把数据表的字段列出来
+        foreach($hdata as $k =&gt; $item){
+            if(!empty($item)){
+
+                if($k == 0){
+                    $field .= &#39;`&#39;.$item.&#39;`&#39;;
+                }else{
+                    $field .= &#39;,&#39;.&#39;`&#39;.$item.&#39;`&#39;;
+                }
+            }
+
+        }
+
+        //不需要操作的表
+        $jump = array(
+            0 =&gt; &#39;t_const&#39;,
+            1 =&gt; &#39;t_update_code&#39;,
+            2 =&gt; &#39;t_properties_message&#39;,
+            3 =&gt; &#39;t_error_code&#39;,
+            4 =&gt; &#39;t_properties_mail&#39;
+        );
+
+
+        //跳过不需要操作的表
+        if(!in_array($sheetName, $jump)){
+
+         //把数据表的原先数据清空
+            $sSql = &#34;DELETE FROM  &#34;.$sheetName.&#34;&#34;;
+            $res = mysql_query($sSql); 
+            if($res){
+                //循环读取每个单元格的内容。注意行从3开始，列从A开始  
+                for ($rowIndex = 3; $rowIndex &lt;= $allRow; $rowIndex++) {  
+                    $data = array();  
+                    for($colIndex=&#39;A&#39;; $colIndex!=$allColumn; $colIndex++){
+                        //空字段对应的列的数据都不插入数据表
+                        if(!in_array($colIndex, $key)){
+
+                            $addr = $colIndex . $rowIndex;  
+                            $cell = $currentSheet-&gt;getCell($addr)-&gt;getValue();  
+                            if($cell instanceof PHPExcel_RichText){ 
+                                //富文本转换字符串，不然就出现 PHPExcel_RichText Object
+                                  $cell = $cell-&gt;__toString();  
+                            }
+                            array_push($data, $cell); 
+                        }
+
+
+                    }   
+
+
+                    foreach($data as $k =&gt; $item){
+
+                        //防止和item里的引号冲突
+                        if($k == 0){
+                            $value .= &#39;&#34;&#39;.AddSlashes($item).&#39;&#34;&#39;;
+                        }else{
+
+                            $value .= &#39;,&#39;.&#39;&#34;&#39;.AddSlashes($item).&#39;&#34;&#39;;
+
+                        }
+
+                    }
+
+
+
+                    //把excel表中的数据都插入数据库 
+
+                    $sql = &#34;insert into &#34;.$sheetName.&#34;(&#34;.$field.&#34;)&#34;;   
+                    $sql .= &#34; values (&#34;.$value.&#34;)&#34;;  
+                    $sql = &#39;insert into &#39;.$sheetName.&#39;(&#39;.$field.&#39;)&#39;;   
+                    $sql .= &#39; values (&#39;.$value.&#39;)&#39;; 
+
+                    mysql_query(&#39;SET NAMES UTF8&#39;); 
+                    $res = mysql_query($sql);
+                    if($res){
+
+                        //插入成功
+                        //echo 1;
+                    }else{
+                        echo $sql.&#39;&lt;br /&gt;&lt;br /&gt;&#39;;
+                        //插入失败，显示报错信息
+                        //错误打log
+                        file_put_contents(&#39;errorlog/insert_error_&#39;.$sheetName.&#39;_&#39;.date(&#39;Y-m-d&#39;).&#39;.log&#39;,&#39;[START]------&#39;.mysql_error().&#39;------[END]&#39;.date(&#39;Y-m-d H:i:s&#39;).PHP_EOL,FILE_APPEND);
+                    }
+                    unset($value);
+
+
+                } 
+            }else{
+                echo mysql_error();
+                //错误打log
+                file_put_contents(&#39;errorlog/delete_error_&#39;.$sheetName.&#39;_&#39;.date(&#39;Y-m-d&#39;).&#39;.log&#39;,&#39;[START]------&#39;.mysql_error().&#39;------[END]&#39;.date(&#39;Y-m-d H:i:s&#39;).PHP_EOL,FILE_APPEND);
+            }
+
+
+        }else{
+            file_put_contents(&#39;errorlog/pass_&#39;.$sheetName.&#39;_&#39;.date(&#39;Y-m-d&#39;).&#39;.log&#39;,&#39;[START]------&#39;.$sheetName.&#39;表跳过导入------[END]&#39;.date(&#39;Y-m-d H:i:s&#39;).PHP_EOL,FILE_APPEND);
+
+        } 
+
+
+
+
+
+        unlink($filePath);  
+
+        sleep(1);
+    } 
+
+    if(error_log()){
+        file_put_contents(&#39;errorlog/php_error_&#39;.date(&#39;Y-m-d&#39;).&#39;.log&#39;,&#39;[START]------&#39;.error_log().&#39;------[END]&#39;.date(&#39;Y-m-d H:i:s&#39;).PHP_EOL,FILE_APPEND);
+    }
+
+
+    echo &#39;用时：&#39;. ( microtime(TRUE) - FY_MTIME );
+</code></pre><p>如果导入数据库的数据有出现“=某个单元格”（=A3），就先把.xls文件转为.csv文件，再按上面的代码导入数据库。</p>
+<p>转格式的做法在下面的链接里：
+xls文件转csv文件</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2018-01-06</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://xuguoyao.github.io/posts/php-excle/" data-title="PHPExcle导excle表到数据库" data-hashtags="php"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://xuguoyao.github.io/posts/php-excle/" data-hashtag="php"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://xuguoyao.github.io/posts/php-excle/" data-title="PHPExcle导excle表到数据库"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://xuguoyao.github.io/posts/php-excle/" data-title="PHPExcle导excle表到数据库"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://xuguoyao.github.io/posts/php-excle/" data-title="PHPExcle导excle表到数据库"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/php/">php</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/multidimensional-array-sorting/" class="prev" rel="prev" title="多维数组排序"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>多维数组排序</a>
+            <a href="/posts/swaggo/" class="next" rel="next" title="使用swaggo时要注意的一点">使用swaggo时要注意的一点<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.100.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">xgy</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.5.4/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"data":{"id-1":"隔壁老许的小打小闹","id-2":"隔壁老许的小打小闹"},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

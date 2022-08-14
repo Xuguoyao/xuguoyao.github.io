@@ -1,0 +1,39 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>php - 标签 - </title>
+        <link>https://xuguoyao.github.io/tags/php/</link>
+        <description>php - 标签 - </description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 06 Jan 2018 23:36:00 &#43;0800</lastBuildDate><atom:link href="https://xuguoyao.github.io/tags/php/" rel="self" type="application/rss+xml" /><item>
+    <title>PHPExcle导excle表到数据库</title>
+    <link>https://xuguoyao.github.io/posts/php-excle/</link>
+    <pubDate>Sat, 06 Jan 2018 23:36:00 &#43;0800</pubDate>
+    <author>xgy</author>
+    <guid>https://xuguoyao.github.io/posts/php-excle/</guid>
+    <description><![CDATA[通过PHPExcle把excle表导入数据库，变成数据表；也就是一个excle表对应就是一个数据表： Excle表里的格式为： . A B C 1 对应数]]></description>
+</item>
+<item>
+    <title>多维数组排序</title>
+    <link>https://xuguoyao.github.io/posts/multidimensional-array-sorting/</link>
+    <pubDate>Thu, 16 Nov 2017 21:42:00 &#43;0800</pubDate>
+    <author>xgy</author>
+    <guid>https://xuguoyao.github.io/posts/multidimensional-array-sorting/</guid>
+    <description><![CDATA[当要使用多维数组中的某个值来作排序时，可以使用下面的代码： （通过学习《深入理解PHP 高级技巧、面向对象与核心技术》的方法所得） &lt;?php header(&#34;Content-type: text/html; charset=utf-8&#34;); $student = array(]]></description>
+</item>
+<item>
+    <title>php本地地址改成域名访问</title>
+    <link>https://xuguoyao.github.io/posts/php-hosts/</link>
+    <pubDate>Tue, 15 Aug 2017 20:43:00 &#43;0800</pubDate>
+    <author>xgy</author>
+    <guid>https://xuguoyao.github.io/posts/php-hosts/</guid>
+    <description><![CDATA[如果想用一个自定义的域名来访问自己本地的项目，有以下步骤： 1、进入到“C:\Windows\System32\drivers\etc”的目录]]></description>
+</item>
+<item>
+    <title>php拼接数组</title>
+    <link>https://xuguoyao.github.io/posts/splice-array/</link>
+    <pubDate>Mon, 19 Jun 2017 14:02:00 &#43;0800</pubDate>
+    <author>xgy</author>
+    <guid>https://xuguoyao.github.io/posts/splice-array/</guid>
+    <description><![CDATA[$aLines = Array ( [0] =&gt; Array ( [0] =&gt; 8 [1] =&gt; 30208201 [2] =&gt; 3 ) [1] =&gt; Array ( [0] =&gt; 1 [1] =&gt; 2 [2] =&gt; 1 ) [2] =&gt; Array ( [0] =&gt; 8 [1] =&gt; 30208204 [2] =&gt; 1 ) [3] =&gt; Array ( [0] =&gt; 8 [1] =&gt; 30208205 [2] =&gt; 1 ) ) $count = count($]]></description>
+</item>
+</channel>
+</rss>

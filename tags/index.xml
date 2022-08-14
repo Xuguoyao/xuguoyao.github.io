@@ -1,0 +1,47 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Tags - 标签 - </title>
+        <link>https://xuguoyao.github.io/tags/</link>
+        <description>Tags - 标签 - </description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 28 Aug 2021 17:31:00 &#43;0800</lastBuildDate><atom:link href="https://xuguoyao.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>go</title>
+    <link>https://xuguoyao.github.io/tags/go/</link>
+    <pubDate>Sat, 28 Aug 2021 17:31:00 &#43;0800</pubDate>
+    <author>xgy</author>
+    <guid>https://xuguoyao.github.io/tags/go/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>swaggo</title>
+    <link>https://xuguoyao.github.io/tags/swaggo/</link>
+    <pubDate>Sat, 28 Aug 2021 17:31:00 &#43;0800</pubDate>
+    <author>xgy</author>
+    <guid>https://xuguoyao.github.io/tags/swaggo/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>php</title>
+    <link>https://xuguoyao.github.io/tags/php/</link>
+    <pubDate>Sat, 06 Jan 2018 23:36:00 &#43;0800</pubDate>
+    <author>xgy</author>
+    <guid>https://xuguoyao.github.io/tags/php/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>linux</title>
+    <link>https://xuguoyao.github.io/tags/linux/</link>
+    <pubDate>Sat, 29 Jul 2017 09:32:00 &#43;0800</pubDate>
+    <author>xgy</author>
+    <guid>https://xuguoyao.github.io/tags/linux/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>mysql</title>
+    <link>https://xuguoyao.github.io/tags/mysql/</link>
+    <pubDate>Mon, 19 Jun 2017 14:02:00 &#43;0800</pubDate>
+    <author>xgy</author>
+    <guid>https://xuguoyao.github.io/tags/mysql/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
+</rss>
