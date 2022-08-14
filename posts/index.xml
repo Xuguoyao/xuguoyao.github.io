@@ -1,5 +1,6 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
+<<<<<<< HEAD
         <title>所有文章 - </title>
         <link>https://xuguoyao.github.io/posts/</link>
         <description>所有文章 | </description>
@@ -71,6 +72,15 @@
     <title>我的第一篇博客</title>
     <link>https://xuguoyao.github.io/posts/my-first-post/</link>
     <pubDate>Fri, 09 Jun 2017 15:29:43 &#43;0800</pubDate>
+=======
+        <title>All Posts - 隔壁老许的小打小闹</title>
+        <link>https://xuguoyao.github.io/posts/</link>
+        <description>All Posts | 隔壁老许的小打小闹</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 09 Jun 2022 15:29:43 &#43;0800</lastBuildDate><atom:link href="https://xuguoyao.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>我的第一篇博客</title>
+    <link>https://xuguoyao.github.io/posts/my-first-post/</link>
+    <pubDate>Thu, 09 Jun 2022 15:29:43 &#43;0800</pubDate>
+>>>>>>> 59001bf8c2125647da481c79c9c4d742c9b8d795
     <author>xgy</author>
     <guid>https://xuguoyao.github.io/posts/my-first-post/</guid>
     <description><![CDATA[你好呀！😂]]></description>
